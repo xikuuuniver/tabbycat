@@ -1,7 +1,3 @@
-# Production
+web: gunicorn tabbycat.wsgi --bind 0.0.0.0:$PORT --workers 4 --timeout 120
+migrate: python manage.py migrate --noinput
 
-# Note that this runs honcho, which in turn runs a second 'MultiProcfile'
-# This better allows for multiple processes to be run simultaneously
-
-web: honcho -f ProcfileMulti start
-worker: python manage.py runworker notifications adjallocation venues
