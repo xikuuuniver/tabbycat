@@ -1,3 +1,2 @@
-web: gunicorn tabbycat.wsgi --bind 0.0.0.0:$PORT --workers 4 --timeout 120
-migrate: python manage.py migrate --noinput
+web: python manage.py migrate --noinput && python run_gunicorn.py
 
